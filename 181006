@@ -1,0 +1,53 @@
+
+a <- c()
+
+a <- 4
+b <- 3 
+a;b;
+
+va <- c(1,2,3)
+vb <- c(4,5,6)
+vc <- c(7,8,9); vc
+  
+A <- rbind(va, vb, vc)
+B <- cbind(va, vb, vc)
+
+A;B;
+
+B2<- as.data.frame(cbind(va,vb,vc)) ; B2
+
+C <- t(A)
+# tramspose의 약자, 행렬변환해라.
+
+A; C;
+
+k <- c(1:9) ; k
+# 백터는 방향성이 있는 수, 스칼라는 실제이동 구불구불한. 물리적인 거리
+# 방향을 알수 없는 백터.... 40-> 
+# c(1,2,3)이 되서 좌표가 있어야 방향이 정확하게 있는 백터
+# 루트 14 
+# cartesian 카르데시안(=데카르트 좌표계) 유클리안 프로덕트?
+
+
+
+ if (a >b) {
+   " a is larger than b" 
+ }
+ 
+ if (a > b) {
+   print("a is larger than b")
+}
+
+
+
+if (b>a) {
+  print("a is larger than b")
+}else {
+  print("b is not larger than b")
+}
+
+
+# 1>2 캐릭터일는 1이 가나다순처럼 먼저고
+# 2>1 슷자일떄는 당연히 2가 크고
+# 확인
+str(a)
