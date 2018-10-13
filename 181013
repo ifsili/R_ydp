@@ -104,3 +104,34 @@ library(data.table)
 ttn_raw <- fread("traint.csv")
 
 ttn_raw
+
+attributes(ttn_raw)
+
+v1 <- vector() 
+# or c() 빈벡터생선
+v2 <- c(-0.95, 0.95)
+#숫자형
+v3 <- c(1:3) 
+#or c(1,2,3) or 1:3 : 정수형
+v4 <- c(3-1i, 2+5i) 
+#복소수형
+v5 <-c(TRUE, FALSE)
+#or c(T, F) : 논리형
+length(v3)
+
+m <- matrix() 
+#:빈 매트릭스 형성
+m <- matrix(1:12, nrow = 4, ncol = 3)
+m <- 1:12; dim(m) <- c(4,3)
+#  단일 벡터 생성후 차월설정
+v6 <- 1:3; v7 <- 4:6; mr <- rbind(v6, v7); mc <- cbind(v6, v7)
+
+df <-  data.frame(Name = c("Scarlet","James", "Daniel"), Score = c(98,87,100))
+dim(df)
+df
+
+f <- factor(c("Blue","Red","Green","Green","Red","Green","Blue"));f
+f <- factor(c("Blue","Red","Green","Green","Red","Green","Blue"), levels = c("Red", "Green","Blue"))
+table(f)
+
+# MF같은 성별정보를 자동을 0,1과같이 바꿔주는 기능
