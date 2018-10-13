@@ -1,0 +1,106 @@
+
+
+brand1<- c("Prada");  item1 <- c("Wallet"); price1 <- c(1000)
+brand2 <- c("Hermes");  item2 <- c("Lipstick"); price2 <- c(800)
+
+choice1 <- c(brand1, item1, price1)
+choice2 <- c(brand2, item2, price2)
+
+C <- rbind(choice1, choice2)
+
+colnames(C) <- c("Brand","Item","Price")
+
+if ( C[1,1] == "Prada") {
+  if ( C[1,3] < 900 ) {
+    "Prada Win"
+  }else {
+  "Prada Loose"
+  }
+  }else {
+      "who's Next?"
+  }
+
+
+for(i in 1:10) {
+  cat(i*2, "\n")
+}
+# 1부터 100까지 짝수의 합출력
+
+for (i in 1:100) {
+  cat(i*2)
+}
+
+
+start <-1
+while (start <= 10) {
+  cat(start*2, "\n")
+  start <-start +1
+}
+
+
+lunch <- 3
+choice <-2
+
+if(lunch == 1){
+  cat("한식","\n")
+  if(lunch == 1){
+    cat("차돌박이 김치찌게")
+  } else cat("삼겹살")
+
+}else if(lunch == 2) {
+  cat("일식", "\n")
+  if(choice ==1){
+    cat("초밥")
+    }else cat("우동")
+ 
+}else if(lunch == 3){
+    cat("중식","\n")
+  if(choice ==1){
+     cat("짜장면")
+     }else cat("짬뽕")}
+
+
+#  5이하의 자연수 중 하나를 램덤하게 고르려면
+
+#sample(5, size = 1, replace = TRUE)
+
+#  한식일식 중식 정학후 자동 선택 
+# choice(2, sixe = 1, replace = TRUE) 
+
+
+
+
+
+
+menu <- function(choice) {
+  option <- sample(3, size = 1, replace = TRUE)
+  if(choice == 1 ) { cat("한식","\n")
+    if(option == 1 ) {
+      cat("차돌박이 된장찌게")
+    }else if(option == 2){
+      cat("삼겹살")
+      } else cat("제육볶음")
+    
+    
+  }else if(choice == 2 ){ cat("일식","\n")
+      if(option == 1) {
+        cat ("초밥")
+      }else if(option == 2){
+          cat("우동")
+       }else cat ("카레")
+    
+  }else if(choice == 3) {cat("중식","\n")
+    if(option == 1) {
+      cat("짜장면")
+    }else if (option == 2){
+      cat("짬뽕")
+     }else cat("볶음밥") 
+    }
+
+  }
+
+install.packages('data.table')
+library(data.table)
+ttn_raw <- fread("traint.csv")
+
+ttn_raw
