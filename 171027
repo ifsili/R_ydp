@@ -1,0 +1,117 @@
+
+v0 <- c("가","나","다","a","b","c")
+v0[1]; v0[2]
+
+v0[c(2:5)]
+v0[2:5]
+   
+v0[c(1.,3,5)]
+v0[1,3,5]
+# 전자방식으로 쓰자
+   
+bigA <- v0>"a"
+bigA
+
+v0[bigA]
+
+v0[v0 >"a"] 
+v0[v0 >"A"]
+
+
+
+
+v1 <- c(v0, "A")
+v1
+
+"a1" >"1a"
+#어느게 더 앞인지 확인해봐야한다.
+
+
+mr[2,3]
+mr[2,3, drop = FALSE]
+mr[2,]
+mr[,3]
+
+
+ls <- list(0.3,3, 1-3i, TRUE)
+ls2 <- list( location = 1:5, averagerRent =300)
+df < data.frame(Name)
+
+
+
+
+ls2$locaiton
+ls2$location[1]
+ls2$location[[1]]
+
+ls2$l
+ls$l[1]
+ls2[["l",exact = FALSE]]
+
+
+
+
+
+
+
+ma <- matrix(1:6, 2,3)
+ma
+mb <- matrix(7:12, 2,3)
+mb
+mm <- matrix(,nrow(ma) + nrow(mb), ncol(ma))
+mm
+mm[1:nrow(ma),] <-ma
+mm
+mm[(nrow(ma) +1):(nrow(ma)+nrow(mb)), ] <-mb
+mm
+
+sample <- sample(12 , 12, replace = FALSE)
+sample
+sampledf <- as.data.frame(matrix(sample,4,3))
+sort(sampledf$V1)
+rank(sampledf$v1) == order(sampledf$V1)
+sortedsampledf <- sampledf[order(sampledf$V1),]
+sortedsampledf <- sampledf
+
+
+
+
+
+#18
+Nvector <- c(1,2,NA,NULL,NaN, 3/0, 0/0, 0/3)
+Nvector
+is.nan(Nvector)
+  troublesNaN <- is.nan(Nvector); troublesNaN
+  Nvector[!troublesNaN]
+
+
+is.na(Nvector)
+
+
+
+library(data.table)
+ttn_raw <- fread("traint.csv")
+
+ttn_age <- ttn_raw$Age
+min(ttn_age); max(ttn_age); median(ttn_age);mean(ttn_age);length(ttn_age)
+quantile(ttn_age)
+mean(ttn_age)
+summary(ttn_age)
+sum(ttn_age)
+
+install.packages("dplyr")
+library(dplyr)
+
+data()
+
+CO2
+tapply(CO2$uptake, CO2$plant, mean)
+
+
+summary(ttn_raw)
+
+tapply(ttn_raw$Age, ttn_raw$Survived, mean)
+ttn_rawx <- na.exclude(ttn_raw)
+tapply(ttn_rawx$Age, ttn_rawx$Survived, mean)
+
+head(ttn_raw, n= 10)
