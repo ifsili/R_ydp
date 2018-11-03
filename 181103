@@ -1,0 +1,68 @@
+library(data.table)
+ttn_raw <- fread("traint.csv")
+
+ttn_age0 <- ttn_raw$Age[complete.cases(ttn_raw$Age)]
+ttn_age <- na.exclude(ttn_raw$Age)
+stem(ttn_age)
+stem(ttn_age, scale = 0.5)
+stem(ttn_age, width = 133)
+stem(ttn_age, scale = 0.5, width =100)
+length(ttn_age[ttn_age >=18])
+
+H1 <- fivenum(ttn_age)[2]
+H1
+
+
+boxplot(ttn_age)
+
+install.packages("ggplot2")
+library(ggplot2)
+
+head(ttn_raw)
+head(ttn_raw2)
+
+ttn_raw2 <- ttn_raw[ttn_raw$Fare <500, ]
+
+ggplot(ttn_raw2, aes( x= Pclass, y = Age)) + geom_point(alpha = 0.5)
+ggplot(ttn_raw2, aes( x= Pclass, y = Age, color = Sex)) + geom_jitter(alpha = 0.5)
+ggplot(ttn_raw2, aes( x= Pclass, y = Age, size = SibSp)) + geom_jitter(alpha = 0.5)
+ggplot(ttn_raw2, aes( x= Pclass, y = Age, color = Sex, size = SibSp)) + geom_jitter(alpha = 0.5)
+ggplot(ttn_raw2, aes( x= Pclass, y = Age, color = Sex, size = SibSp, shape = Embarked)) + geom_jitter(alpha = 0.5)
+
+# 2등석의 애 아빠들이 많이 죽은듯, 3등급 독신남들이 많이 살아남은 듯.
+
+ggplot(ttn_raw2, aes( x= Pclass, y = Age, color = Sex, size = SibSp)) + geom_jitter(alpha = 0.5) + facet_grid(. ~ Survived)
+
+install.packages("dplyr")
+library(dplyr)
+
+ttn_raw3 <- mutate(ttn_raw2, family = SibSp + Parch)
+ttn_raw3
+
+ggplot(ttn_raw3, aes( x= Pclass, y = Age, color = Sex, size = family, shape = Embarked)) 
++ geom_jitter(alpha = 0.5) + facet_grid(.~ Survived)
+
+ggplot(ttn_raw3, aes( x= Age)) + geom_histogram(alpha = 0.5) + facet_grid(.~ Survived ~ Pclass + Sex)
+ggplot(ttn_raw3, aes( x= Age, fill = Sex)) + geom_histogram(alpha = 0.5) + facet_grid(.~ Survived ~ Pclass + Sex)
+ggplot(ttn_raw3, aes( x= Age, fill = Sex)) + geom_histogram(alpha = 0.5) + facet_grid(.~ Survived ~ Pclass)
+
+ggplot(ttn_raw3, aes( x= Pclass, y = Age, color = Embarked, size = SibSp, shape = Sex)) + geom_jitter(alpha = 0.5) + facet_grid(.~ Survived)
+
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_jitter(alpht = 0.6) + facet_grid(. ~Species)  + stat_smooth(method="loess", col ="violet" )
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point(alpht = 0.6) + facet_grid(. ~Species)  + stat_smooth(method="loess", col ="violet" )
+
+ggplot(mtcars, aes(x= wt, y = mpg)) + 
+  geom_point(alpha = 0.5, aes(color = cyl)) + 
+  facet_grid(. ~carb) + 
+  stat_smooth( method = "loess", se = F, col = "green")
+
+
+head(mtcars)
+head(diamonds)
+
+ggplot(diamonds, aes(x = carat, y = price, color = color)) + geom_jitter(alpha = 0.5) + facet_grid(. ~clarity) + stat_smooth()
+
+
+
+y <- seq(1, 9000, 100)
+x <- rep(c(()))
