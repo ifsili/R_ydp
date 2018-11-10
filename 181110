@@ -1,0 +1,128 @@
+y <- seq(1,9000,100)
+x <- rep(c("A","B","C"), c(30,30,30))
+x <-factor(x)
+oneway.aov <- aov(y ~x)
+summary(oneway.aov)
+
+
+y<- sea(1, 9000, 100)
+fac <- gl(n=3, k = 30, length = 90, label = c("A","B","c"))
+location <- gl(n = 2 , k = 15, length = 90, label = c("해안가", "내륙"))
+df_aov <- data.frame(y, Factor = fac, Location = location)
+twoway.aov <- aov(y ~ Location*Factor, data = df_aov)
+summary(twoway.aov)
+ 
+
+data :wt and mpg
+t <- 9559,d f = 30, p-value = 1.294e-10
+
+
+attach(mtcars)
+cor(mpg, wt, method ="perason")
+cor.test(mtcats$mpg, mtcats$wt, method ="perarson")
+plot(mtcars$mpg, mtcats$wt)
+plot(mpg, wt)
+
+fit <- lm(mtcars$wt ~ mtcars$mpg)
+fit
+summary(fit)
+anova(fit)
+confint(fit)
+
+plot(mtcats$mpg, mtcats$wt)
+bline(fit)
+
+plot(fit$fitted.values, fit$residuals, ylab = "Residuals")
+abline(0,0)
+
+fit2 <- lm(wt ~ mpg + hp) 
+fit2
+
+summary(fit2)
+anova(fit2)
+confint(fit2)
+
+plot(fit2$fitted.values, fit2$residuals, xalb = "wegith of Cars", ylab = "residuals", main="resuadual palot")
+abline(0,0)
+
+
+
+#더비 데이터 생성
+
+attach(mtcats)
+fit3 <- lm(wt ~ mpg + hp + factor(cyl))
+fit3
+summary(fit3)
+anova(fit3)
+
+
+
+x<- c(1:10)
+y <- x^3
+y2 <- x^5
+
+atttach(mtcars)
+
+fit4 <- glm(am ~ wt + hp, family = binomial)
+fit4
+plot(fit4)
+
+
+
+attach(ttn_raw)
+fit6 <- glm(Survived ~ Age+ Pclass + factor(Sex) + factor(SibSp), family = binomial)
+fit6
+
+summary(fit6)
+anova(fit6)
+confint(fit5)
+plot(fit5$fitted.values, fit5$resiuals, xlab = "Survivor", ylab = "residuals", main= "Resiual")
+abline(0,0)
+
+
+
+
+
+attach(na.exclude(ttn_raw))
+test2 <- na.exclude(ttn_raw)
+pred <- predict(glm(Survived ~ Age + factor(Pclass) + factor(Sex) + factor(Embarked), 
+                    family = "binomial"), test2, type ="response")
+mean(na.exclude(pred))                
+
+library("dplyr")
+install.packages("dylpr")
+
+df1 <- data.frame(CustmerId = c(1:10), Menu = c(rep("김밥", 3), rep("비빔밥", 3), rep("어묵", 4)))
+df2 <- data.frame(CustmerId = c(2,4,6), Table = c(rep("sectorA",2), rep("SectorB", 1)))
+df3 <- data.frame(CustmerId = c(2,5), Gender = c("남성","여성"))                
+
+df1
+df2
+df3
+
+# InnerJoin
+IJ1<- merge(df1, df2, by = "CustmerId")
+IJ <- df1 %>% inner_join(df2, by = "CustmerId")
+IJ2 <- merge(IJ, df3, by ="CustmerId")
+IJ3 <- merge(df1, df2) %>% merge(., df3, by = "CustmerId")
+
+
+
+LeftOuterJoined <- merge(x=  df1, y=df2, by ="CustmerId", all.x = TRUE)
+RightOuterJoined <- merge(x = df1, y=df2, by ="CustmerId", all.y = TRUE)
+RigthOuterjoined2 <-df1 %>% merge(., df2, by ="CustmerId", all.y = TRUE) 
+
+
+LeftOuterJoined 
+RgihtOut
+
+
+OuterJointed <- merge(x = df1, y = df2, by = "CustmerId", all = TRUE)
+OJ2 <- merge(x = OuterJointed, y = df3, by = "CustmerId", all = TRUE)
+
+
+OuterJointed
+
+
+CrossJoined <- merge(x = df1, y = df2, by = NULL)
+CrossJoined
